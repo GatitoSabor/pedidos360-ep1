@@ -23,7 +23,7 @@ public class DatosController {
     // ==========================================
     
     // Evolucionamos tu método obtenerDatos() para que traiga la información real
-    @PreAuthorize("hasAuthority('SCOPE_solicitante') or hasAuthority('SCOPE_aprobador')")
+    @PreAuthorize("hasAuthority('SCOPE_api/solicitante') or hasAuthority('SCOPE_aprobador')")
     @GetMapping
     public List<Pedido> obtenerDatos() {
         return pedidoRepository.findAll();
@@ -33,7 +33,7 @@ public class DatosController {
     // ROL: SOLICITANTE (Crear solicitudes)
     // ==========================================
 
-    @PreAuthorize("hasAuthority('SCOPE_solicitante')")
+    @PreAuthorize("hasAuthority('SCOPE_api/solicitante')")
     @PostMapping
     public Pedido crearPedido(@RequestBody Pedido pedido) {
         pedido.setEstado("PENDIENTE");
@@ -44,7 +44,7 @@ public class DatosController {
     // ROL: APROBADOR (Aprobar o Rechazar)
     // ==========================================
 
-    @PreAuthorize("hasAuthority('SCOPE_aprobador')")
+    @PreAuthorize("hasAuthority('SCOPE_api/aprobador')")
     @PatchMapping("/{id}/revision")
     public ResponseEntity<Pedido> revisarPedido(@PathVariable Long id, @RequestBody Pedido revision) {
         Optional<Pedido> pedidoExistente = pedidoRepository.findById(id);
