@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'backend/**'
+      - '.github/workflows/back-build.yml' # Agregado para que detecte este mismo cambio
 
 jobs:
   build:
@@ -17,6 +18,10 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+
+      - name: Dar permisos a Maven Wrapper (Fix para Windows)
+        working-directory: ./backend
+        run: chmod +x mvnw
 
       - name: Compilar con Maven
         working-directory: ./backend
