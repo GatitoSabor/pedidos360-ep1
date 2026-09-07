@@ -22,7 +22,7 @@ resource "aws_cognito_user_pool" "pool" {
 
 # El dominio publica los endpoints estándar /oauth2/authorize y /oauth2/token[cite: 3].
 resource "aws_cognito_user_pool_domain" "hosted_ui" {
-  domain       = "pedidos360-williams" # ¡Recuerda que este nombre debe ser único en todo AWS! Si te da error, agrégale algún número al final[cite: 3].
+  domain       = "pedidos360-williams-2" # ¡Recuerda que este nombre debe ser único en todo AWS! Si te da error, agrégale algún número al final[cite: 3].
   user_pool_id = aws_cognito_user_pool.pool.id
 }
 
