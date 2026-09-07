@@ -1,0 +1,15 @@
+name: 4. Backend Deploy Pipeline
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulación de Despliegue Backend a ECS
+        run: |
+          echo "Creando imagen Docker de Spring Boot..."
+          echo "Subiendo imagen a AWS ECR..."
+          echo "Actualizando servicio en AWS ECS..."
+          echo "¡Despliegue backend finalizado con éxito!"

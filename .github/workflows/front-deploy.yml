@@ -1,0 +1,14 @@
+name: 2. Frontend Deploy Pipeline
+
+on:
+  workflow_dispatch: # Permite ejecutar el pipeline manualmente desde GitHub
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulación de Despliegue Frontend
+        run: |
+          echo "Iniciando despliegue de React..."
+          echo "Conectando con AWS S3 y CloudFront..."
+          echo "¡Despliegue finalizado con éxito!"
